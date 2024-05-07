@@ -3,10 +3,10 @@ name: CI
 on:
   push:
     branches:
-      - CalculadoraString
+      - main
   pull_request:
     branches:
-      - CalculadoraString
+      - main
 
 jobs:
   build:
@@ -28,4 +28,5 @@ jobs:
       run: dotnet build --configuration Release
 
     - name: Run unit tests
-      run: dotnet test --configuration Release --no-build --filter FullyQualifiedName~TestTDD.Tests.Unit
+      run: dotnet test --configuration Release --no-build --filter FullyQualifiedName~TestTDD
+      working-directory: ./UnitTest
