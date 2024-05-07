@@ -44,10 +44,9 @@
     <Compile Include="Calculadora.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-<ItemGroup>
-  <!-- Referencia a otro proyecto en la misma solución -->
-  <ProjectReference Include="..\Path\To\Project\CalculadoraString.csproj" />
-
-</ItemGroup>
+  <ItemGroup>
+    <!-- Referencia a otro proyecto en la misma solución -->
+    <ProjectReference Include="..\Path\To\Project\CalculadoraString.csproj" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
