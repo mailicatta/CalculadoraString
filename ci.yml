@@ -29,3 +29,4 @@ jobs:
 
     - name: Run unit tests
       run: dotnet test --configuration Release --no-build --filter FullyQualifiedName~TestTDD.Tests.Unit
+      # hola
