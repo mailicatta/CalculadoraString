@@ -1,4 +1,4 @@
-name: CI para CalculadoraString
+name: CI
 
 on:
   push:
@@ -10,19 +10,22 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest  # Utilizamos Windows como sistema operativo
+    runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2  # Paso para clonar el repositorio
-
-    - name: Setup .NET SDK
-      uses: actions/setup-dotnet@v1  # Configuramos el entorno .NET
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.0.x'  # Puedes especificar la versión de .NET que necesitas
+        dotnet-version: '6.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore  # Restaurar las dependencias del proyecto
+      run: dotnet restore
 
-    - name: Build and test
-      run: dotnet test --no-restore --verbosity normal  # Ejecutar las pruebas unitarias
-hola
+    - name: Build
+      run: dotnet build --configuration Release
+
+    - name: Run unit tests
+      run: dotnet test --configuration Release --no-build --filter FullyQualifiedName~TestTDD.Tests.Unit
